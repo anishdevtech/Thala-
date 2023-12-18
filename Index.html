@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color:#25252A;
+            transition: background 0.5s ease; /* Add smooth transition effect */
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        #result {
+            font-weight: bold;
+        }
+
+        .thala-bg {
+            background: url('https://i.redd.it/95s8k4furb1c1.gif') center fixed;
+            background-size: cover;
+        }
+
+        .no-thala-bg {
+            background: url('https://gifdb.com/images/high/sad-man-crying-out-loud-meme-74loufg1hlyn7h48.gif') center fixed;
+            background-size: cover;
+        }
+
+        /* Add animations and hover effects as needed */
+    </style>
+    <title>Thala Checker</title>
+</head>
+<body>
+
+    <div class="container">
+        <label for="inputText">Enter a word or number for getting your thala power:</label>
+        <input type="text" id="inputText" oninput="checkThala()">
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkThala() {
+            const input = document.getElementById('inputText').value;
+            const resultElement = document.getElementById('result');
+            const body = document.body;
+
+            let sum = 0;
+            for (let i = 0; i < input.length; i++) {
+                if (!isNaN(input[i])) {
+                    sum += parseInt(input[i]);
+                }
+            }
+
+            if (input.length === 7 || sum === 7) {
+                resultElement.innerText = 'Thala for a reason';
+                body.classList.remove('no-thala-bg');
+                body.classList.add('thala-bg');
+            } else {
+                resultElement.innerText = 'No Thala for a reason';
+                body.classList.remove('thala-bg');
+                body.classList.add('no-thala-bg');
+            }
+        }
+    </script>
+
+</body>
+</html>
