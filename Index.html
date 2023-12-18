@@ -10,6 +10,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color:grey;
             margin: 0;
             transition: background 0.5s ease; /* Add smooth transition effect */
         }
@@ -109,7 +110,7 @@
                 }
             }
 
-            if (input === 'ezsnippet') {
+            if (input === 'ezsnippet' || 'snippet') {
                 resultElement.innerText = 'Background changed for ezsnippet!';
                 body.classList.remove('thala-bg', 'no-thala-bg');
                 body.classList.add('snippet-bg');
