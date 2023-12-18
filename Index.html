@@ -47,18 +47,18 @@
             margin-top: 15px;
         }
 
-        .thala-bg {
+        .no-thala-bg {
             background: url('https://gifdb.com/images/high/sad-man-crying-out-loud-meme-74loufg1hlyn7h48.gif') center fixed;
             background-size: cover;
         }
 
-        .no-thala-bg {
+        .thala-bg {
             background: url('https://i.redd.it/95s8k4furb1c1.gif') center fixed;
             background-size: cover;
         }
 
         .snippet-bg {
-            background: url('./GAqKG_fawAAn_nt.mp4') center fixed;
+            background: url('/GAqKG_fawAAn_nt.mp4') center fixed;
             background-size: cover;
         }
 
@@ -110,7 +110,7 @@
                 }
             }
 
-            if (input === 'ezsnippet' || input === 'snippet') {
+            if (input === 'snippet') {
                 resultElement.innerText = 'Background changed for ezsnippet!';
                 body.classList.remove('thala-bg', 'no-thala-bg');
                 body.classList.add('snippet-bg');
