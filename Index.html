@@ -11,7 +11,6 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color:#25252A;
             transition: background 0.5s ease; /* Add smooth transition effect */
         }
 
@@ -21,25 +20,65 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px; /* Adjust as needed */
+            width: 100%;
+            margin: 0 auto;
         }
 
         input {
-            padding: 8px;
+            padding: 12px;
             margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
         }
 
         #result {
             font-weight: bold;
+            margin-top: 15px;
         }
 
         .thala-bg {
-            background: url('https://i.redd.it/95s8k4furb1c1.gif') center fixed;
+            background: url('https://gifdb.com/images/high/sad-man-crying-out-loud-meme-74loufg1hlyn7h48.gif') center fixed;
             background-size: cover;
         }
 
         .no-thala-bg {
-            background: url('https://gifdb.com/images/high/sad-man-crying-out-loud-meme-74loufg1hlyn7h48.gif') center fixed;
+            background: url('https://i.redd.it/95s8k4furb1c1.gif') center fixed;
             background-size: cover;
+        }
+
+        .snippet-bg {
+            background: url('https://twitter.com/i/status/1732348880556331014') center fixed;
+            background-size: cover;
+        }
+
+        /* Title styles */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Quote styles */
+        .quote {
+            font-style: italic;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        /* Note styles */
+        .note {
+            font-size: 14px;
+            color: #999;
+            margin-top: 10px;
         }
 
         /* Add animations and hover effects as needed */
@@ -49,14 +88,17 @@
 <body>
 
     <div class="container">
-        <label for="inputText">Enter a word or number for getting your thala power:</label>
+        <h1>Thala Checker</h1>
+        <label for="inputText">Enter a word or number:</label>
         <input type="text" id="inputText" oninput="checkThala()">
         <p id="result"></p>
+        <div class="quote">"In the world of coding, simplicity is key – make the complex easy, and let your snippets speak like Thala"</div>
+        <p class="note">Note: Please don't avoid using the word "snippet" in the input for accurate results.</p>
     </div>
 
     <script>
         function checkThala() {
-            const input = document.getElementById('inputText').value;
+            const input = document.getElementById('inputText').value.toLowerCase();
             const resultElement = document.getElementById('result');
             const body = document.body;
 
@@ -67,17 +109,23 @@
                 }
             }
 
-            if (input.length === 7 || sum === 7) {
+            if (input === 'ezsnippet') {
+                resultElement.innerText = 'Background changed for ezsnippet!';
+                body.classList.remove('thala-bg', 'no-thala-bg');
+                body.classList.add('snippet-bg');
+            } else if (input.length === 7 || sum === 7) {
                 resultElement.innerText = 'Thala for a reason';
-                body.classList.remove('no-thala-bg');
+                body.classList.remove('no-thala-bg', 'snippet-bg');
                 body.classList.add('thala-bg');
             } else {
                 resultElement.innerText = 'No Thala for a reason';
-                body.classList.remove('thala-bg');
+                body.classList.remove('thala-bg', 'snippet-bg');
                 body.classList.add('no-thala-bg');
             }
         }
     </script>
 
+</body>
+</html>
 </body>
 </html>
