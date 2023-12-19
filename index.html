@@ -29,7 +29,7 @@
         input {
             padding: 12px;
             margin: 10px 0;
-            width: 100%;
+            width: calc(100% - 24px);
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -82,6 +82,22 @@
             margin-top: 10px;
         }
 
+        /* Button styles */
+        button {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
         /* Add animations and hover effects as needed */
     </style>
     <title>Thala Checker</title>
@@ -92,6 +108,7 @@
         <h1>Thala Checker</h1>
         <label for="inputText">Enter a word or number:</label>
         <input type="text" id="inputText" oninput="checkThala()">
+        <button onclick="checkThala()">Submit</button>
         <p id="result"></p>
         <div class="quote">"In the world of coding, simplicity is key – make the complex easy, and let your snippets speak like Thala"</div>
         <p class="note">Note: Please don't avoid using the word "snippet" in the input for accurate results.</p>
@@ -117,22 +134,34 @@
             if (input === 'snippet') {
                 resultElement.innerText = 'Background changed for ezsnippet!';
                 body.classList.remove('thala-bg', 'no-thala-bg');
-                snippetaudio.pause();
-                nothalaaudio.pause();
+                if (!snippetaudio.paused) {
+                    snippetaudio.pause();
+                }
+                if (!nothalaaudio.paused) {
+                    nothalaaudio.pause();
+                }
                 changeaudio.play();
                 thalaaudio.play();
                 body.classList.add('snippet-bg');
             } else if (input.length === 7 || sum === 7) {
-                thalaaudio.pause();
-                nothalaaudio.pause();
+                if (!thalaaudio.paused) {
+                    thalaaudio.pause();
+                }
+                if (!nothalaaudio.paused) {
+                    nothalaaudio.pause();
+                }
                 changeaudio.play();
                 snippetaudio.play();
                 resultElement.innerText = 'Thala for a reason';
                 body.classList.remove('no-thala-bg', 'snippet-bg');
                 body.classList.add('thala-bg');
             } else {
-                snippetaudio.pause();
-                thalaaudio.pause();
+                if (!snippetaudio.paused) {
+                    snippetaudio.pause();
+                }
+                if (!thalaaudio.paused) {
+                    thalaaudio.pause();
+                }
                 changeaudio.play();
                 nothalaaudio.play();
                 resultElement.innerText = 'No Thala for a reason';
