@@ -126,10 +126,10 @@
                     sum += parseInt(input[i]);
                 }
             }
-            const thalaaudio = new Audio('bole-jo-koyal-ms-dhoni-thala-theme.mp3');
-            const nothalaaudio = new Audio('tmptj_6rrcb.mp3');
-            const snippetaudio = new Audio('naughty-hora-ke-2.mp3');
-            const changeaudio = new Audio('quack_5.mp3');
+            const thalaaudio = new Audio('bole-jo-koyal-ms-dhoni-thala-theme.mp3').pause();
+            const nothalaaudio = new Audio('tmptj_6rrcb.mp3').pause();
+            const snippetaudio = new Audio('naughty-hora-ke-2.mp3').pause();
+            const changeaudio = new Audio('quack_5.mp3').pause();
 
             if (input === 'snippet') {
                 resultElement.innerText = 'Background changed for ezsnippet!';
