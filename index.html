@@ -128,7 +128,7 @@
             }
             const thalaaudio = new Audio('bole-jo-koyal-ms-dhoni-thala-theme.mp3');
             const nothalaaudio = new Audio('tmptj_6rrcb.mp3');
-            const snippetaudio = new Audio('naughty-hora-ke-2.mp3').pause();
+            const snippetaudio = new Audio('naughty-hora-ke-2.mp3');
             const changeaudio = new Audio('quack_5.mp3');
 
             if (input === 'snippet') {
@@ -140,12 +140,12 @@
                 if (!nothalaaudio.paused) {
                     nothalaaudio.pause();
                 }
-                if(snippet.paused){
-                changeaudio.play();
-                thalaaudio.play();
+                if (snippetaudio.paused) {
+                    changeaudio.play();
+                    thalaaudio.play();
                 }
                 body.classList.add('snippet-bg');
-               
+
             } else if (input.length === 7 || sum === 7) {
                 if (!snippetaudio.paused) {
                     snippetaudio.pause();
@@ -153,26 +153,26 @@
                 if (!nothalaaudio.paused) {
                     nothalaaudio.pause();
                 }
-                
+
                 if (thalaaudio.paused) {
-                changeaudio.play();
-                thalaaudio.play();
+                    changeaudio.play();
+                    thalaaudio.play();
                 }
                 resultElement.innerText = 'Thala for a reason';
                 body.classList.remove('no-thala-bg', 'snippet-bg');
                 body.classList.add('thala-bg');
             } else {
                 if (!snippetaudio.paused) {
-                    snippetaaudio.pause();
+                    snippetaudio.pause();
                 }
                 if (!thalaaudio.paused) {
                     thalaaudio.pause();
                 }
                 if (nothalaaudio.paused) {
-                changeaudio.play();
-                nothalaaudio.play();
+                    changeaudio.play();
+                    nothalaaudio.play();
                 }
-                
+
                 resultElement.innerText = 'No Thala for a reason';
                 body.classList.remove('thala-bg', 'snippet-bg');
                 body.classList.add('no-thala-bg');
