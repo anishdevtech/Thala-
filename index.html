@@ -10,7 +10,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color:grey;
+            background-color: grey;
             margin: 0;
             transition: background 0.5s ease; /* Add smooth transition effect */
         }
@@ -113,31 +113,28 @@
             const nothalaaudio = new Audio('tmptj_6rrcb.mp3');
             const snippetaudio = new Audio('naughty-hora-ke-2.mp3');
             const changeaudio = new Audio('quack_5.mp3');
-                 
 
             if (input === 'snippet') {
                 resultElement.innerText = 'Background changed for ezsnippet!';
                 body.classList.remove('thala-bg', 'no-thala-bg');
-                snippetaudio?.stop()
-                nothalaaudio?.stop()
-                changeaudio.play()
-                thalaaudio.play()
-
-
+                snippetaudio.pause();
+                nothalaaudio.pause();
+                changeaudio.play();
+                thalaaudio.play();
                 body.classList.add('snippet-bg');
             } else if (input.length === 7 || sum === 7) {
-                thalaaudio?.stop()
-                nothalaaudio?.stop()
-                changeaudio.play()
-                snippetaudio.play()
+                thalaaudio.pause();
+                nothalaaudio.pause();
+                changeaudio.play();
+                snippetaudio.play();
                 resultElement.innerText = 'Thala for a reason';
                 body.classList.remove('no-thala-bg', 'snippet-bg');
                 body.classList.add('thala-bg');
             } else {
-                snippetaudio?.stop()
-                thalaaudio?.stop()
-                changeaudio.play()
-                nothalaaudio.play()
+                snippetaudio.pause();
+                thalaaudio.pause();
+                changeaudio.play();
+                nothalaaudio.play();
                 resultElement.innerText = 'No Thala for a reason';
                 body.classList.remove('thala-bg', 'snippet-bg');
                 body.classList.add('no-thala-bg');
@@ -145,7 +142,5 @@
         }
     </script>
 
-</body>
-</html>
 </body>
 </html>
