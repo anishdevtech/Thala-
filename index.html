@@ -134,15 +134,18 @@
             if (input === 'snippet') {
                 resultElement.innerText = 'Background changed for ezsnippet!';
                 body.classList.remove('thala-bg', 'no-thala-bg');
-                if (!snippetaudio.paused) {
-                    snippetaudio.pause();
+                if (!thalaaudio.paused) {
+                    thalaaudio.pause();
                 }
                 if (!nothalaaudio.paused) {
                     nothalaaudio.pause();
                 }
+                if(snippet.paused){
                 changeaudio.play();
                 thalaaudio.play();
+                }
                 body.classList.add('snippet-bg');
+               
             } else if (input.length === 7 || sum === 7) {
                 if (!snippetaudio.paused) {
                     snippetaudio.pause();
@@ -159,15 +162,15 @@
                 body.classList.remove('no-thala-bg', 'snippet-bg');
                 body.classList.add('thala-bg');
             } else {
-                if (!nothalaaudio.paused) {
-                    nothalaaudio.pause();
+                if (!snippetaudio.paused) {
+                    snippetaaudio.pause();
                 }
                 if (!thalaaudio.paused) {
                     thalaaudio.pause();
                 }
                 if (nothalaaudio.paused) {
                 changeaudio.play();
-                snippetaudio.play();
+                nothalaaudio.play();
                 }
                 
                 resultElement.innerText = 'No Thala for a reason';
